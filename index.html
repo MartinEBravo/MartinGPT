@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MartinGPT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#fetchButton").click(function() {
+                var inputText = $("#input").val().trim();
+                if (inputText === "") {
+                    alert("You must enter some text.");
+                    return;
+                }
+                var contents = inputText + "\nAnswer the following question.";
+                var modelId = "text-davinci-003";
+                $("#output").val("AI is generating the response...");
+
+                $.ajax({
+                    url: "https://api.openai.com/v1/engines/" + modelId + "/completions",
+                    type: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer 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"
+                    },
+                    data: JSON.stringify({
+                        prompt: contents,
+                        max_tokens: 256,
+                        temperature: 0.7,
+                        top_p: 1
+                    }),
+                    success: function(response) {
+                        if (response.choices && response.choices.length > 0) {
+                            var responseText = response.choices[0].text.trim();
+                            $("#output").val("AI response:\n" + responseText);
+                        } else {
+                            $("#output").val("Error: No completion found");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        $("#output").val("Error: " + error);
+                    }
+                });
+            });
+        });    
+    </script>
+</head>
+<body>
+    <h1>OpenAI Response</h1>
+    <textarea id="input" placeholder="Enter your content here"></textarea>
+    <button id="fetchButton">Get Response</button>
+    <textarea id="output" placeholder="AI response will be shown here" readonly></textarea>
+    </body>
+</html>
