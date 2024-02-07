@@ -23,27 +23,37 @@ This is a simple chatbot implementation to use ChatGPT in your terminal.
 
 ## Installation
 
+First, clone this repository:
+
+```bash
+git clone https://github.com/MartinEBravo/MartinGPT.git
+```
+
+Then, install the required packages:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-Create a `.env` file with the following content:
+Create a `.env` file with your OpenAI API key:
 
 ```bash
-OPENAI_API_KEY=your-api-key
+touch .env
+OPENAI_API_KEY=your-api-key > .env
 ```
+
+Replace `your-api-key` with your OpenAI API key.
 
 ### Add command to your terminal
 
 If you want to use the chatbot from your terminal, you can add the following command to your `.bashrc` or `.zshrc` file:
 
 ```bash
-function chatgpt() {
-    python /path/to/MartinGPT/main.py
-}
+alias martingpt='python /MartinGPT/main.py'
+source ~/.bashrc
 ```
 
-Replace `/path/to/MartinGPT` with the path to the folder where you cloned this repository.
+Now you can use the chatbot from your terminal by typing `martingpt`.
 
 ## Commands
 
