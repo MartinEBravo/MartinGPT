@@ -10,7 +10,7 @@ import openai
 import os
 
 # Import models and functions
-from services.models import GPT3, GPT4
+from services.models import GPT3, GPT4, models
 from services.get_tokens import num_tokens_from_string
 
 # Import dotenv
@@ -30,7 +30,7 @@ robot = open(ubication + "/utils/robot.txt", "r").read()
 print(robot)
 
 # Initial Model
-model = GPT4()
+model = models[0]
 
 # Current Session Cost	
 cost = 0
@@ -48,15 +48,12 @@ while True:
 	if message == "exit":
 		break
 
-	# If the message is "gpt3" the model will change to GPT-3
-	elif message == "gpt3":
-		model = GPT3()
-		print("Model changed to GPT-3")
-
-	# If the message is "gpt4" the model will change to GPT-4
-	elif message == "gpt4":
-		model = GPT4()
-		print("Model changed to GPT-4")
+	# If we want to change the model
+	for modelClass in models:
+		if message == modelClass.short_name:
+			model = modelClass
+			print("Model changed to", model.name)
+			break
 		
 	# Answer the message
 	else:
