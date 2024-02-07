@@ -53,11 +53,9 @@ while True:
 		if message == modelClass.short_name:
 			model = modelClass
 			print("Model changed to", model.name)
-			break
 		
 	# Answer the message
 	else:
-			
 		# We add the new message
 		messages.append( 
 			{"role": "user", "content": message}, 

@@ -28,7 +28,6 @@ class GPT4:
 		self.input_per_token = 0.01/1000
 		self.output_per_token = 0.03/1000
 
-
 models = [
 	GPT3(), 
 	GPT4()
