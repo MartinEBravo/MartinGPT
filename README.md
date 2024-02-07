@@ -48,9 +48,22 @@ Replace `your-api-key` with your OpenAI API key.
 
 If you want to use the chatbot from your terminal, you can add the following command to your `.bashrc` or `.zshrc` file:
 
+### Windows
 ```bash
 alias martingpt='python /MartinGPT/main.py'
 source ~/.bashrc
+```
+
+### Linux
+```bash
+alias martingpt='python3 /MartinGPT/main.py'
+source ~/.bashrc
+```
+
+### MacOS
+```bash
+alias martingpt='python3 /MartinGPT/main.py'
+source ~/.zshrc
 ```
 
 Now you can use the chatbot from your terminal by typing `martingpt`.
