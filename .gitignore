@@ -1,2 +1,8 @@
+# Environment
 .env
+
+# Mac system files
 .DS_Store
+
+# PyCache
+services/__pycache__
