@@ -6,18 +6,29 @@ import os
 from services.get_tokens import num_tokens_from_string
 from services.models import models
 
-def execute(cost = 0, model = models[0], messages = [{"role": "system", "content": "You are a helpful assistant"}]):
-    
+def execute(cost=0, model=models[0], messages=[{"role": "system", "content": "You are a helpful assistant"}]):
+    """
+    Executes the chatbot program.
+
+    Parameters:
+    - cost (float): The current cost of the chatbot usage.
+    - model (Model): The current model being used by the chatbot.
+    - messages (list): The list of messages exchanged between the user and the chatbot.
+
+    Returns:
+    None
+    """
+
     # load usage of the bot in the file usage.txt
     ubication = os.path.dirname(os.path.abspath(__file__))
-    usage = float(open( ubication + "/../utils/usage.txt", "r").read())
+    usage = float(open(ubication + "/../utils/usage.txt", "r").read())
 
-    message = input("User : ") 
+    message = input("User : ")
 
     # If the message is "exit" the program will stop
     if message == "exit":
         return
-    
+
     # If we want to change the model
     for modelClass in models:
         if message == modelClass.short_name:
