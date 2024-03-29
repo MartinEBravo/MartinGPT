@@ -70,6 +70,10 @@ Now you can use the chatbot from your terminal by typing `martingpt`.
 
 ## Commands
 
+- `cost`: Show the cost of the chatbot
 - `exit`: Exit the chatbot
 - `gpt3`: Change the model to GPT-3
 - `gpt4`: Change the model to GPT-4
+- `help`: Show the help menu
+- `model`: Show the current model
+- `reset`: Reset the cost of the chatbot

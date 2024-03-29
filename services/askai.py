@@ -36,6 +36,23 @@ def execute(cost = 0, model = models[0], messages = [{"role": "system", "content
         print("Current model:", model.name)
         return execute(cost, model, messages)
     
+    # If we want to know the help
+    if message == "help":
+        print("Type 'cost' to know the current cost")
+        print("Type 'exit' to stop the program")
+        print("Type 'gpt3' to change the model to GPT-3.5 Turbo")
+        print("Type 'gpt4' to change the model to GPT-4.0125 Preview")
+        print("Type 'model' to know the current model")
+        print("Type 'reset' to reset the cost")
+        return execute(cost, model, messages)
+    
+    # If we want to reset the cost
+    if message == "reset":
+        print("Cost reseted")
+        with open(ubication + "/../utils/usage.txt", "w") as file:
+            file.write("0")
+        return execute(0, model, messages)
+    
     # Answer the message
     else:
         # We add the new message
@@ -77,6 +94,5 @@ def execute(cost = 0, model = models[0], messages = [{"role": "system", "content
         # Write the usage in the file
         with open(ubication + "/../utils/usage.txt", "w") as file:
             file.write(str(usage))
-
         
         return execute(cost, model, messages)
