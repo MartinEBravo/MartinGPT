@@ -1,5 +1,5 @@
 # MartinGPT
-# Simple program to ask ChatGPT in terminal
+# Simple program to ask ChatGPT on terminal
 #
 # Author: Martin Bravo
 # Website: https://mbravo.me
