@@ -6,3 +6,6 @@
 
 # PyCache
 services/__pycache__
+
+# Usage file
+utils/usage.txt
