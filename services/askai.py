@@ -20,8 +20,14 @@ def execute(cost=0, model=models[0], messages=[{"role": "system", "content": "Yo
     """
 
     # load usage of the bot in the file usage.txt
+
+    # Check if the usage.txt file exists
     ubication = os.path.dirname(os.path.abspath(__file__))
-    usage = float(open(ubication + "/../utils/usage.txt", "r").read())
+    if os.path.exists(ubication + "/../utils/usage.txt"):
+        usage = float(open(ubication + "/../utils/usage.txt", "r").read())
+    else:
+        print("You must create the usage file writing \"make usage\" in the terminal!")
+        return
 
     message = input("User : ")
 
