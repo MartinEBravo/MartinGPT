@@ -44,6 +44,21 @@ OPENAI_API_KEY=your-api-key > .env
 
 Replace `your-api-key` with your OpenAI API key.
 
+Then, create a "usage.txt" file:
+
+```bash
+	touch utils/usage.txt
+	echo "0" >> utils/usage.txt
+```
+
+Or you can write:
+
+```bash
+make usage
+```
+
+To set it automatically.
+
 ### Add command to your terminal
 
 If you want to use the chatbot from your terminal, you can add the following command to your `.bashrc` or `.zshrc` file:
