@@ -47,8 +47,8 @@ Replace `your-api-key` with your OpenAI API key.
 Then, create a "usage.txt" file:
 
 ```bash
-	touch utils/usage.txt
-	echo "0" >> utils/usage.txt
+touch utils/usage.txt
+echo "0" >> utils/usage.txt
 ```
 
 Or you can write:
