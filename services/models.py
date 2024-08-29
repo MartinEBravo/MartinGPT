@@ -28,7 +28,42 @@ class GPT4:
 		self.input_per_token = 0.01/1000
 		self.output_per_token = 0.03/1000
 
+class GPT4o:
+	"""
+	Represents the GPT-4o
+
+	Attributes:
+		name (str): The name of the model.
+		input_per_token (float): The input cost per token.
+		output_per_token (float): The output cost per token.
+	"""
+	def __init__(self):
+		self.name = "gpt-4o"
+		self.short_name = "gpt4o"
+		self.input_per_token = 5/1000000
+		self.output_per_token = 15/1000000
+
+
+class GPT4oMini:
+	"""
+	Represents the GPT-4o Mini
+
+	Attributes:
+		name (str): The name of the model.
+		input_per_token (float): The input cost per token.
+		output_per_token (float): The output cost per token.
+	"""
+	def __init__(self):
+		self.name = "gpt-4o-mini"
+		self.short_name = "gpt4omini"
+		self.input_per_token = 0.15/1000000
+		self.output_per_token = 0.6/1000000
+
+
+
 models = [
+	GPT4oMini(),
+	GPT4o(),
 	GPT4(),
 	GPT3(), 
 ]
