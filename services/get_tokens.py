@@ -11,5 +11,5 @@ def num_tokens_from_string(string: str, model: object) -> int:
     Returns:
         int: The number of tokens in the string.
     """
-    encoding = tiktoken.encoding_for_model(model.name)
+    encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
     return len(encoding.encode(string))
